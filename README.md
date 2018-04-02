@@ -1,4 +1,16 @@
-To Test:
+# The Bug
+
+Launching an app from a notification that contains `additionalActions` will not include that clicked notification in `NSApplicationLaunchUserNotificationKey`.
+
+```
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    // This is nil!
+    aNotification.userInfo[NSApplicationLaunchUserNotificationKey];
+}
+```
+
+
+# To Test:
 
 1. Build and run from Xcode
 2. click each button once, to create each type of notification
